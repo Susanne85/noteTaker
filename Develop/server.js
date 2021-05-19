@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());    
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.get('/', (request, result) => result.send('Hello Susanne'));
 const directoryPath = __dirname + '/public/';
 let notesArray = [];
 
@@ -23,35 +22,36 @@ app.get('/notes', (request, result) => result.sendFile(path.join(directoryPath, 
 
 // Get text from the user and save to notes array, use a Post to add the new note and return the new notes to the user.
 app.get('/api/notes', (request, result) => {
-  //console.log('Inside get before ', notesArray);
   fs.readFile('./db/db.json','utf8', function(err, data){
     if(err) throw err;
-     //do operation on data that generates say resultArray;
+     //do operation on data that generates say notesArray;
      notesArray = JSON.parse(data);
-    // console.log('Object ', notesArray);
+     for (let i=0; i<notesArray.length; i++) {
+      Object.assign(notesArray[i], {"ID": i});
+     }
      return result.json(notesArray);
   });  
 });
 
-app.get('/api/notes/:newText', (request, result) => {
-  const newText = request.params.character;
-
-  console.log(newText);
+app.delete('/api/notes/:deleteID', (request, result) => {
+  const deleteLine = request.params.deleteID;
+  const index = notesArray.indexOf(deleteLine);
+ // notesArray.splice(index,1);
+  console.log('in here2', notesArray);
 
 });
 
 app.post('/api/notes', (request, result) => {
   const newNotes = request.body;
 
-  console.log(newNotes);
-
   notesArray.push(newNotes);
 
-  console.log('Notes Array ', newNotes);
+  let notesJSON = JSON.stringify(notesArray);
   
-  result.json(newNotes);
+  result.json(notesArray);
+ 
+  fs.writeFileSync(path.join(__dirname, 'db', 'db.json'), notesJSON, 'utf-8');
   
-  // Title: x, there is a delete function.
 });
 
 // Start our server so that it can begin listening to client requests.
