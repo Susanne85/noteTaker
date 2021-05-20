@@ -18,7 +18,7 @@ The link to the GITHUB page is : https://github.com/Susanne85/noteTaker
 **Application Display**
 
 
-![Initial Display of Note Taker](assets/1-Display.png)
+![Initial Display of Note Taker](A1ssets/1-Display.png)
 
 
 ![Entry of new note](assets/2-Display.png))
