@@ -1,0 +1,6 @@
+{
+    "name": "Node.js server.js",
+    "description": "Note Taker",
+    "repository": "https:github.com/Susanne85/noteTaker",
+    "keywords": ["node", "express", "static"]
+}
