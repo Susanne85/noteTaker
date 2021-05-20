@@ -11,7 +11,7 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
-console.log('At the start');
+
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
@@ -82,12 +82,12 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
+  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).ID;
+  
   if (activeNote.id === noteId) {
     activeNote = {};
   }
-
+ 
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -118,7 +118,7 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
-  console.log('getnotes', jsonNotes);
+      
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
