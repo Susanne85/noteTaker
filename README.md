@@ -27,7 +27,8 @@ The link to the GITHUB page is : https://github.com/Susanne85/noteTaker
 ![Display after new note added](Assets/3-Display.png)
 
 
-![Display after deleted](Assets/4-Display.png))
+![Display after deleted](Assets/4-Display.png)
+
 **Liscense**
 
 . MIT
