@@ -18,16 +18,16 @@ The link to the GITHUB page is : https://github.com/Susanne85/noteTaker
 **Application Display**
 
 
-![Initial Display of Note Taker](A1ssets/1-Display.png)
+![Initial Display of Note Taker](Assets/1-Display.png)
 
 
-![Entry of new note](assets/2-Display.png))
+![Entry of new note](Assets/2-Display.png))
 
 
-![Display after new note added](assets/3-Display.png)
+![Display after new note added](Assets/3-Display.png)
 
 
-![Display after deleted](assets/4-Display.png))
+![Display after deleted](Assets/4-Display.png))
 **Liscense**
 
 . MIT
