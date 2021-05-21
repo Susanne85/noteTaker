@@ -12,6 +12,6 @@
   "language": "node",
   "dependencies": {
     "express": "^4.16.4",
-    "heroku": "^7.54.0"
+    
   }
 }
