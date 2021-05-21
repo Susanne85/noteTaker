@@ -5,7 +5,12 @@ const path = require('path');
 
 // Define a port to listen for incoming requests
 const app = express();
-const PORT = 3000;
+
+let port=process.env.PORT;
+if (port ==null || port == ""){
+    port=3000;
+}
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -68,4 +73,4 @@ app.post('/api/notes', (request, result) => {
 });
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
+app.listen(port, () => console.log(`App listening on PORT ${port}`));
