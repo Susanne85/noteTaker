@@ -26,21 +26,21 @@ app.get('/api/notes', (request, result) => {
     //do operation on data that generates say notesArray;
     notesArray = JSON.parse(data);
     for (let i = 0; i < notesArray.length; i++) {
-      Object.assign(notesArray[i], { "ID": i });
+      Object.assign(notesArray[i], { "id": i });
     }
     return result.json(notesArray);
   });
 });
 
-app.delete('/api/notes/:deleteID', (request, result) => {
-  const deleteLine = Number(request.params.deleteID);
+app.delete('/api/notes/:deleteid', (request, result) => {
+  const deleteLine = Number(request.params.deleteid);
   
-  let i = notesArray.findIndex(data => data.ID === deleteLine);
+  let i = notesArray.findIndex(data => data.id === deleteLine);
   if (i !== -1) {
     notesArray.splice(i, 1);
   }
   
-  notesArray.forEach(id=> delete id.ID);
+  notesArray.forEach(note=> delete note.id);
 
   let notesJSON = JSON.stringify(notesArray);
 
@@ -54,13 +54,16 @@ app.post('/api/notes', (request, result) => {
 
   notesArray.push(newNotes);
 
-  notesArray.forEach(id=> delete id.ID);
+  notesArray.forEach(note=> delete note.id);
 
   let notesJSON = JSON.stringify(notesArray);
 
   fs.writeFileSync(path.join(__dirname, 'db', 'db.json'), notesJSON, 'utf-8');
 
   result.json(notesArray);
+
+  // uuid
+  // dwadwa-dwadwa-dwa-dwa-dwa
 
 });
 
