@@ -1,16 +1,14 @@
-{
-  "name": "note-taker",
-  "version": "1.0.0",
-  "description": "",
-  "repository": "https://git.heroku.com/ancient-anchorage-04146.git",
-  "main": "server.js",
-  "scripts": {
+{  "name": "note-taker",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "language": "node",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.1"
   }
 }
