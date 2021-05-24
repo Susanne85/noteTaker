@@ -6,6 +6,9 @@ This application allows a user to view, enter and delete their notes.  The appli
 
 The link to the GITHUB page is : https://github.com/Susanne85/noteTaker
 
+The link to the HEROKU page is : https://ancient-anchorage-04146.herokuapp.com
+
+
 **Technologies Utilised**
 
 . HTTP 
