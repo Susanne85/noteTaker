@@ -2,6 +2,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
 
 // Define a port to listen for incoming requests
 const app = express();
@@ -10,7 +11,6 @@ let port=process.env.PORT;
 if (port ==null || port == ""){
     port=3000;
 }
-
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -31,15 +31,16 @@ app.get('/api/notes', (request, result) => {
     //do operation on data that generates say notesArray;
     notesArray = JSON.parse(data);
     for (let i = 0; i < notesArray.length; i++) {
-      Object.assign(notesArray[i], { "id": i });
+      Object.assign(notesArray[i], { "id": uuidv4() });
     }
+     
     return result.json(notesArray);
   });
 });
 
 app.delete('/api/notes/:deleteid', (request, result) => {
-  const deleteLine = Number(request.params.deleteid);
-  
+  const deleteLine = request.params.deleteid;
+   
   let i = notesArray.findIndex(data => data.id === deleteLine);
   if (i !== -1) {
     notesArray.splice(i, 1);
